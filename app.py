@@ -5,6 +5,7 @@ from wtforms import Form,StringField,PasswordField,validators
 from FireBlog.users.forms import Register,Article
 from functools import wraps
 
+app.register_blueprint(FireBlog)
 
 app=Flask(__name__)
 app.config['SECRET_KEY'] = 'therandomstring'
