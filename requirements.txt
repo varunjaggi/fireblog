@@ -1,5 +1,4 @@
 passlib==1.7.2
-pkg-resources==0.0.0
 WTForms==2.3.1
 CacheControl==0.12.6
 cachetools==4.1.0
