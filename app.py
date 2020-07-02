@@ -1,16 +1,15 @@
 from flask import Flask,render_template,request,session,url_for,flash,redirect,logging,make_response
-
+from FireBlog.users.forms import Register,Article
+from FireBlog import insert,fetch,checkuser,fetcharticles,insertarticle,fetchuserarticles,fetcharticlebyid,deletearticle
 from passlib.hash import sha256_crypt
 from wtforms import Form,StringField,PasswordField,validators
 
 from functools import wraps
 app=Flask(__name__)
-app.register_blueprint(FireBlog)
 
 
 app.config['SECRET_KEY'] = 'therandomstring'
-from FireBlog.users.forms import Register,Article
-from FireBlog import insert,fetch,checkuser,fetcharticles,insertarticle,fetchuserarticles,fetcharticlebyid,deletearticle
+
 
 #main route
 @app.route('/')
