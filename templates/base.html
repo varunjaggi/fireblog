@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+    <title>FireBlog </title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{url_for('index')}}">Home</a></li>
+            <li class="active"><a href="{{url_for('articles')}}">Articles</a></li>
+            
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% if session.loggedin %}
+              <li><a href="/dashboard">Dashboard</a></li>
+               <li><a href="/logout">Logout</a></li>
+           {% else %}
+              <li><a href="/register">Register</a></li>
+              <li><a href="/login">Login</a></li>
+            {% endif %}
+        </div>
+      </nav>
+     <div class="container">
+        {% include 'includes/_messages.html' %}
+      {% block content %}{% endblock %}
+
+    </div>
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>  
+    <script type="text/javascript">
+    CKEDITOR.replace('editor')
+
+    </script>
+    
+</body>
+</html>
+
+</html>

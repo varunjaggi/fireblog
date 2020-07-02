@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h1>Welcome {{session['username']}}</h1>
+<h2>Herre are the articles written by You!</h2>
+<a class="btn btn-success" href='/add_articles'>Add article</a>
+<body>
+
+    <table class="table table-striped">
+        <tr>
+          <th>Title</th>
+          <th>Body</th>
+          <th></th>
+          <th></th>
+        </tr>
+        {% for article in articles %}
+          <tr>
+            <td>{{articles[article].title}}</td>
+            <td>{{articles[article].body}}</td>
+            <td>
+              <form action="{{url_for('delete_article', id=article)}}" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete" class="btn btn-danger">
+              </form>
+            </td>
+
+          </tr>
+         
+        {% endfor %}
+      </table>
+
+
+    <!-- {% for project in articles %}
+    <li>{{ articles[project].body }}</li>
+  {% endfor %} -->
+</body>
+{%endblock%}
