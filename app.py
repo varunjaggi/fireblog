@@ -39,8 +39,8 @@ def register():
         else:
             password=sha256_crypt.encrypt(form.password.data)
             insert(name,email,username,password)
-            flash('You are registerd','success')
-            return redirect(url_for('index'))
+            flash('You are registerd, Please log in','success')
+            return redirect(url_for('login'))
     
 
     return render_template('register.html',form=form)
